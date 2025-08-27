@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comparativa de precios de cerámicas y porcelanatos fuera de Mercado Libre">
+    <title>Comparativa — Ítems más baratos fuera de Mercado Libre</title>
+    <style>
+        /* ==========================================================================
+           VARIABLES CSS - PALETA FORMAL Y PROFESIONAL
+           ========================================================================== */
+
+        :root {
+            /* Paleta Formal - Grises y Azules Corporativos */
+            --color-primary: #1e40af;        /* Azul corporativo */
+            --color-primary-dark: #1e3a8a;   /* Azul más oscuro */
+            --color-primary-light: #3b82f6;  /* Azul más claro */
+            
+            --color-secondary: #64748b;      /* Gris neutro */
+            --color-accent: #0ea5e9;         /* Azul destacado */
+            --color-success: #10b981;        /* Verde corporativo */
+            
+            /* Fondos más neutros */
+            --bg-primary: #0f172a;           /* Azul muy oscuro */
+            --bg-secondary: #1e293b;         /* Gris azulado */
+            --bg-tertiary: #0a0e1a;          /* Casi negro azulado */
+            --bg-card: rgba(255, 255, 255, 0.06); /* Fondo de tarjetas más sutil */
+            
+            /* Textos */
+            --text-primary: #f1f5f9;         /* Texto principal más suave */
+            --text-secondary: #94a3b8;       /* Texto secundario */
+            --text-muted: #64748b;           /* Texto apagado */
+            
+            /* Bordes más sutiles */
+            --border-color: rgba(148, 163, 184, 0.15);
+            --border-light: rgba(148, 163, 184, 0.08);
+            
+            /* Sombras más elegantes */
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-3d: 0 10px 20px rgba(0, 0, 0, 0.25), 
+                         inset 0 -2px 8px rgba(255, 255, 255, 0.05), 
+                         inset 0 1px 4px rgba(255, 255, 255, 0.08);
+            
+            /* Espaciados */
+            --spacing-xs: 4px;
+            --spacing-sm: 8px;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+            --spacing-xl: 32px;
+            
+            /* Transiciones */
+            --transition-fast: 0.15s ease;
+            --transition-normal: 0.25s ease;
+            
+            /* Radios más conservadores */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-full: 999px;
+        }
+
+        /* ==========================================================================
+           RESET Y BASE STYLES
+           ========================================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 50%, var(--bg-tertiary) 100%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 1.6;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* ==========================================================================
+           HEADER - MÁS COMPACTO
+           ========================================================================== */
+
+        header {
+            text-align: center;
+            padding: var(--spacing-lg) var(--spacing-md) var(--spacing-md);
+            max-width: 100%;
+        }
+
+        h1 {
+            margin: 0 0 var(--spacing-sm);
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        /* ==========================================================================
+           TOOLBAR - BOTONES MÁS PEQUEÑOS Y ELEGANTES
+           ========================================================================== */
+
+        .toolbar {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0 var(--spacing-sm);
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .switch {
+            display: inline-flex;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            backdrop-filter: blur(10px);
+        }
+
+        .switch-btn {
+            appearance: none;
+            background: none;
+            color: var(--text-secondary);
+            padding: 8px 12px;  /* Más pequeños */
+            border: 0;
+            cursor: pointer;
+            font-weight: 500;   /* Menos bold */
+            font-size: 0.8rem;  /* Más pequeño */
+            transition: all var(--transition-fast);
+            position: relative;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+
+        .switch-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--text-primary);
+        }
+
+        .switch-btn:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        .switch-btn.active {
+            background: var(--color-primary);
+            color: white;
+            font-weight: 600;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* ==========================================================================
+           GRID Y LAYOUT
+           ========================================================================== */
+
+        main {
+            width: 100%;
+            max-width: 1100px;
+            padding: 0 var(--spacing-md);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--spacing-md);
+            padding: var(--spacing-md) 0 var(--spacing-xl);
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           TARJETAS - COLORES MÁS FORMALES Y PROFESIONALES
+           ========================================================================== */
+
+        .tile {
+            position: relative;
+            display: block;
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            box-shadow: var(--shadow-3d);
+            transition: transform var(--transition-fast), 
+                        box-shadow var(--transition-fast);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .tile::before {
+            content: "";
+            position: absolute;
+            inset: -1px;
+            border-radius: calc(var(--radius-lg) + 1px);
+            padding: 1px;
+            background: linear-gradient(135deg, 
+                        rgba(255, 255, 255, 0.1), 
+                        rgba(255, 255, 255, 0) 50%);
+            -webkit-mask: linear-gradient(#000 0 0) content-box, 
+                          linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        .tile:hover {
+            transform: translateY(-3px) scale(1.01);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3), 
+                        inset 0 -2px 8px rgba(255, 255, 255, 0.08), 
+                        inset 0 1px 4px rgba(255, 255, 255, 0.12);
+        }
+
+        .tile:focus {
+            outline: 2px solid var(--color-accent);
+            outline-offset: 2px;
+        }
+
+        .tile:active {
+            transform: translateY(-1px) scale(1.005);
+        }
+
+        /* ==========================================================================
+           CONTENIDO DE TARJETAS - MÁS REFINADO
+           ========================================================================== */
+
+        .name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            margin: 0 0 var(--spacing-sm);
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        .logo {
+            width: 16px;
+            height: 16px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.15);
+            display: inline-block;
+            background-size: cover;
+            background-position: center;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+            flex-shrink: 0;
+        }
+
+        .meta {
+            display: flex;
+            gap: var(--spacing-xs);
+            align-items: center;
+            opacity: 0.9;
+            flex-wrap: wrap;
+        }
+
+        .pill {
+            padding: 4px 8px;
+            border-radius: var(--radius-full);
+            background: rgba(255, 255, 255, 0.15);
+            font-size: 0.75rem;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .price {
+            margin-left: auto;
+            padding: 5px 8px;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .loc {
+            margin-top: var(--spacing-xs);
+            font-size: 0.75rem;
+            opacity: 0.7;
+            font-weight: 400;
+        }
+
+        /* ==========================================================================
+           PALETA DE COLORES FORMAL - TONOS MÁS CONSERVADORES
+           ========================================================================== */
+
+        .c1 { background: linear-gradient(135deg, #475569, #334155 55%, #1e293b); }
+        .c2 { background: linear-gradient(135deg, #64748b, #475569 55%, #374151); }
+        .c3 { background: linear-gradient(135deg, #0f766e, #0d9488 55%, #0f766e); }
+        .c4 { background: linear-gradient(135deg, #a16207, #ca8a04 55%, #a16207); }
+        .c5 { background: linear-gradient(135deg, #7c3aed, #8b5cf6 55%, #7c3aed); }
+        .c6 { background: linear-gradient(135deg, #1e40af, #2563eb 55%, #1d4ed8); }
+        .c7 { background: linear-gradient(135deg, #059669, #10b981 55%, #047857); }
+        .c8 { background: linear-gradient(135deg, #be123c, #e11d48 55%, #be123c); }
+        .c9 { background: linear-gradient(135deg, #c2410c, #ea580c 55%, #c2410c); }
+        .c10 { background: linear-gradient(135deg, #374151, #4b5563 55%, #374151); }
+
+        /* ==========================================================================
+           FOOTER
+           ========================================================================== */
+
+        footer {
+            color: var(--text-muted);
+            padding: var(--spacing-sm) var(--spacing-md) var(--spacing-lg);
+            text-align: center;
+            font-size: 0.8rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid var(--border-light);
+            margin-top: auto;
+            width: 100%;
+        }
+
+        /* ==========================================================================
+           ANIMACIONES SUTILES
+           ========================================================================== */
+
+        .grid {
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .tile {
+            animation: slideIn 0.3s ease-out forwards;
+            opacity: 0;
+        }
+
+        .tile:nth-child(1) { animation-delay: 0.05s; }
+        .tile:nth-child(2) { animation-delay: 0.1s; }
+        .tile:nth-child(3) { animation-delay: 0.15s; }
+        .tile:nth-child(4) { animation-delay: 0.2s; }
+        .tile:nth-child(5) { animation-delay: 0.25s; }
+        .tile:nth-child(6) { animation-delay: 0.3s; }
+        .tile:nth-child(7) { animation-delay: 0.35s; }
+        .tile:nth-child(8) { animation-delay: 0.4s; }
+        .tile:nth-child(9) { animation-delay: 0.45s; }
+        .tile:nth-child(10) { animation-delay: 0.5s; }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==========================================================================
+           UTILIDADES
+           ========================================================================== */
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* ==========================================================================
+           RESPONSIVE - AJUSTES PARA MÓVILES
+           ========================================================================== */
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+                gap: var(--spacing-sm);
+            }
+            
+            .switch {
+                flex-direction: column;
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .switch-btn {
+                padding: 10px 12px;
+                width: 100%;
+                text-align: center;
+                font-size: 0.85rem;
+            }
+            
+            .toolbar {
+                width: 100%;
+                padding: 0 var(--spacing-md);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-sm);
+            }
+            
+            .tile {
+                padding: var(--spacing-sm);
+            }
+            
+            .meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: var(--spacing-xs);
+            }
+            
+            .price {
+                margin-left: 0;
+                align-self: flex-end;
+            }
+            
+            header {
+                padding: var(--spacing-md) var(--spacing-md) var(--spacing-sm);
+            }
+        }
+
+        /* Reducir movimiento para usuarios que lo prefieran */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .tile:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header role="banner">
+        <h1>Comparativa</h1>
+        <p class="subtitle">Botones 3D con nombre, medida y precio. Cambiá la vista por zona.</p>
+        
+        <div class="toolbar">
+            <div class="switch" id="zoneSwitch" role="tablist" aria-label="Filtrar por zona geográfica">
+                <button role="tab" 
+                        data-zone="all" 
+                        class="switch-btn active" 
+                        aria-selected="true"
+                        aria-controls="grid">
+                    Todos
+                </button>
+                <button role="tab" 
+                        data-zone="zona-norte" 
+                        class="switch-btn" 
+                        aria-selected="false"
+                        aria-controls="grid">
+                    Zona Norte GBA
+                </button>
+                <button role="tab" 
+                        data-zone="neuquen" 
+                        class="switch-btn" 
+                        aria-selected="false"
+                        aria-controls="grid">
+                    Neuquén
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="grid" id="grid" role="tabpanel" aria-live="polite">
+            
+            <article class="tile c1" data-zone="otros">
+                <a href="https://paramiobra.com/lourdes-ceramica-pared-travertino-gris-brillante-31x53-1ra-calidad" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Ver Cerámica Lourdes Travertino Brillante Gris en Paramiobra">
+                    
+                    <h3 class="name">
+                        <span class="logo" 
+                              style="background-image:url('https://paramiobra.com/favicon.ico')"
+                              aria-hidden="true"></span>
+                        Cerámica Lourdes • Travertino Brillante Gris
+                    </h3>
+                    
+                    <div class="meta">
+                        <span class="pill">31×53 cm • 1ra</span>
+                        <span class="pill">Paramiobra</span>
+                        <span class="price" aria-label="Precio por metro cuadrado">$8.630,00 / m²</span>
+                    </div>
+                    
+                    <div class="loc">
+                        <span class="visually-hidden">Ubicación: </span>
+                        Merlo (Oeste GBA)
+                    </div>
+                </a>
+            </article>
+
+            <article class="tile c2" data-zone="otros">
+                <a href="https://jafceramicos.com/product/ceramica-travertino-marron-35x35-lourdes-1ra/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Ver Cerámica Lourdes Travertino Marrón en JAF Cerámicos">
+                    
+                    <h3 class="name">
+                        <span class="logo" 
+                              style="background-image:url('https://jafceramicos.com/favicon.ico')"
+                              aria-hidden="true"></span>
+                        Cerámica Lourdes • Travertino Marrón
+                    </h3>
+                    
+                    <div class="meta">
+                        <span class="pill">35×35 cm • 1ra</span>
+                        <span class="pill">JAF Cerámicos</span>
+                        <span class="price" aria-label="Precio por metro cuadrado">$5.683,18 / m²</span>
+                    </div>
+                    
+                    <div class="loc">
+                        <span class="visually-hidden">Ubicación: </span>
+                        Morón (Oeste GBA)
+                    </div>
+                </a>
+            </article>
+
+            <article class="tile c3" data-zone="zona-norte">
+                <a href="https://tienda.gaphaus.com.ar/productos/porcellanato-simil-cemento-ilva-mediterranea-chalk-45x90-1ra-calidad/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Ver Ilva Mediterránea Chalk en Gap Haus">
+                    
+                    <h3 class="name">
+                        <span class="logo" 
+                              style="background-image:url('https://tienda.gaphaus.com.ar/favicon.ico')"
+                              aria-hidden="true"></span>
+                        Ilva • Mediterránea Chalk
+                    </h3>
+                    
+                    <div class="meta">
+                        <span class="pill">45×90 cm • 1ra</span>
+                        <span class="pill">Gap Haus</span>
+                        <span class="price" aria-label="Precio por metro cuadrado">$31.006,00 / m²</span>
+                    </div>
+                    
+                    <div class="loc">
+                        <span class="visually-hidden">Ubicación: </span>
+                        Tigre (Zona Norte GBA)
+                    </div>
+                </a>
+            </article>
+
+            <article class="tile c4" data-zone="zona-norte">
+                <a href="https://tienda.gaphaus.com.ar/productos/porcelanato-ilva-tribeca-wood-greenwich-out-20x120-1ra-calidad/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Ver Ilva Tribeca Wood Greenwich Out en Gap Haus">
+                    
+                    <h3 class="name">
+                        <span class="logo" 
+                              style="background-image:url('https://tienda.gaphaus.com.ar/favicon.ico')"
+                              aria-hidden="true"></span>
+                        Ilva • Tribeca Wood Greenwich Out
+                    </h3>
+                    
+                    <div class="meta">
+                        <span class="pill">20×120 cm • 1ra</span>
+                        <span class="pill">Gap Haus</span>
+                        <span class="price" aria-label="Ver precio por metro cuadrado">Ver precio / m²</span>
+                    </div>
+                    
+                    <div class="loc">
+                        <span class="visually-hidden">Ubicación: </span>
+                        Tigre (Zona Norte GBA)
+                    </div>
+                </a>
+            </article>
+
+            <article class="tile c5" data-zone="neuquen">
+                <a href="https://casagres.com.ar/products/porcelanato-san-lorenzo-desing-suria-silver-60x60-pulido" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Ver San Lorenzo Suria Silver Pulido en Casa Gres">
+                    
+                    <h3 class="name">
+                        <span class="logo" 
+                              style="background-image:url('https://casagres.com.ar/favicon.ico')"
+                              aria-hidden="true"></span>
+                        San Lorenzo • Suria Silver Pulido
+                    </h3>
+                    
+                    <div class="meta">
+                        <span class="pill">60×60 cm • 1ra</span>
+                        <span class="pill">Casa Gres</span>
+                        <span class="price" aria-label="Precio por metro cuadrado">$35.158,28 / m²</span>
+                    </div>
+                    
+                    <div class="loc">
+                        <span class="visually-hidden">Ubicación: </span>
+                        Neuquén / Río Negro
+                    </div>
+                </a>
+            </article>
+
+            <article class="tile c6" data-zone="otros">
+                <a href="https://ruteniamateriales.com/producto/spl-porcelanato-travertino-marfil-1-80x160-3-72/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Ver SPL Pietra Travertino en Rutenia Materiales">
+                    
+                    <h3 class="name">
+                        <span class="logo" 
+                              style="background-image:url('https://ruteniamateriales.com/favicon.ico')"
+                              aria-hidden="true"></span>
+                        SPL • Pietra Travertino
+                    </h3>
+                    
+                    <div class="meta">
+                        <span class="pill">80×160 cm • 1ra</span>
+                        <span class="pill">Rutenia Materiales</span>
+                        <span class="price" aria-label="Precio por metro cuadrado">$19.520,00 / m²</span>
+                    </div>
+                    
+                    <div class="loc">
+                        <span class="visually-hidden">Ubicación: </span>
+                        CABA/AMBA (ver cobertura)
+                    </div>
+                </a>
+            </article>
+
+            <article class="tile c7" data-zone="otros">
+                <a href="https://tienda.grupoanacleto.com.ar/productos/porcelanato-ilva-downtown-avenue-45x90/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Ver Ilva Downtown Avenue en Grupo Anacleto">
+                    
+                    <h3 class="name">
+                        <span class="logo" 
+                              style="background-image:url('https://tienda.grupoanacleto.com.ar/favicon.ico')"
+                              aria-hidden="true"></span>
+                        Ilva • Downtown Avenue
+                    </h3>
+                    
+                    <div class="meta">
+                        <span class="pill">45×90 cm • 1ra</span>
+                        <span class="pill">Grupo Anacleto</span>
+                        <span class="price" aria-label="Precio por metro cuadrado">$25.526,00 / m²</span>
+                    </div>
+                    
+                    <div class="loc">
+                        <span class="visually-hidden">Ubicación: </span>
+                        AMBA (consultar)
+                    </div>
+                </a>
+            </article>
+
+            <article class="tile c8" data-zone="otros">
+                <a href="https://www.merlinosrl.com.ar/porcellanato-ferrara-bianco-alberdi-60x60cm-mate-rectificado-180m2/p" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Ver Alberdi Ferrara Bianco en Merlino SRL">
+                    
+                    <h3 class="name">
+                        <span class="logo" 
+                              style="background-image:url('https://www.merlinosrl.com.ar/favicon.ico')"
+                              aria-hidden="true"></span>
+                        Alberdi • Ferrara Bianco (Travertino)
+                    </h3>
+                    
+                    <div class="meta">
+                        <span class="pill">60×60 cm • 1ra</span>
+                        <span class="pill">Merlino SRL</span>
+                        <span class="price" aria-label="Precio por metro cuadrado">$14.688,00 / m²</span>
+                    </div>
+                    
+                    <div class="loc">
+                        <span class="visually-hidden">Ubicación: </span>
+                        AMBA (consultar)
+                    </div>
+                </a>
+            </article>
+
+            <article class="tile c9" data-zone="otros">
+                <a href="https://www.blaisten.com.ar/porc-45-x-181-travertino-romano-2-45/p" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Ver Cerro Negro Travertino Romano en Blaisten">
+                    
+                    <h3 class="name">
+                        <span class="logo" 
+                              style="background-image:url('https://www.blaisten.com.ar/favicon.ico')"
+                              aria-hidden="true"></span>
+                        Cerro Negro • Travertino Romano
+                    </h3>
+                    
+                    <div class="meta">
+                        <span class="pill">45×181 cm • 1ra</span>
+                        <span class="pill">Blaisten</span>
+                        <span class="price" aria-label="Precio por metro cuadrado">$24.073,00 / m²</span>
+                    </div>
+                    
+                    <div class="loc">
+                        <span class="visually-hidden">Ubicación: </span>
+                        AMBA (sucursales)
+                    </div>
+                </a>
+            </article>
+
+            <article class="tile c10" data-zone="zona-norte">
+                <a href="https://tienda.gaphaus.com.ar/productos/porcelanato-ilva-soho-lounge-45x90-1ra-calidad/" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   aria-label="Ver Ilva Soho Lounge Beige en Gap Haus">
+                    
+                    <h3 class="name">
+                        <span class="logo" 
+                              style="background-image:url('https://tienda.gaphaus.com.ar/favicon.ico')"
+                              aria-hidden="true"></span>
+                        Ilva • Soho Lounge Beige
+                    </h3>
+                    
+                    <div class="meta">
+                        <span class="pill">45×90 cm • 1ra</span>
+                        <span class="pill">Gap Haus</span>
+                        <span class="price" aria-label="Ver precio por metro cuadrado">Ver precio / m²</span>
+                    </div>
+                    
+                    <div class="loc">
+                        <span class="visually-hidden">Ubicación: </span>
+                        Tigre (Zona Norte GBA)
+                    </div>
+                </a>
+            </article>
+
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <small>Precios capturados hoy. Verificá stock, flete y medios de pago antes de comprar.</small>
+    </footer>
+
+    <script>
+        (function() {
+            'use strict';
+
+            const CONFIG = {
+                ANIMATION_DURATION: 200,
+                DEBOUNCE_DELAY: 100
+            };
+
+            let switchButtons = null;
+            let gridElement = null;
+            let tiles = null;
+
+            function initializeApp() {
+                try {
+                    switchButtons = document.querySelectorAll('#zoneSwitch button');
+                    gridElement = document.getElementById('grid');
+                    tiles = document.querySelectorAll('.tile');
+
+                    if (!switchButtons.length || !gridElement || !tiles.length) {
+                        console.warn('Elementos necesarios no encontrados');
+                        return;
+                    }
+
+                    setupEventListeners();
+                    setupAccessibility();
+                    console.log('✅ Comparativa formal inicializada');
+                } catch (error) {
+                    console.error('Error al inicializar:', error);
+                }
+            }
+
+            function setupEventListeners() {
+                switchButtons.forEach(button => {
+                    button.addEventListener('click', handleZoneFilter);
+                    button.addEventListener('keydown', handleKeydown);
+                    button.addEventListener('focus', handleFocus);
+                    button.addEventListener('blur', handleBlur);
+                });
+
+                window.addEventListener('resize', debounce(handleResize, CONFIG.DEBOUNCE_DELAY));
+            }
+
+            function setupAccessibility() {
+                const activeButton = document.querySelector('#zoneSwitch button.active');
+                if (activeButton) {
+                    activeButton.setAttribute('aria-selected', 'true');
+                    activeButton.setAttribute('tabindex', '0');
+                }
+
+                switchButtons.forEach(button => {
+                    if (!button.classList.contains('active')) {
+                        button.setAttribute('aria-selected', 'false');
+                        button.setAttribute('tabindex', '-1');
+                    }
+                });
+            }
+
+            function handleZoneFilter(event) {
+                try {
+                    const clickedButton = event.target;
+                    const zone = clickedButton.dataset.zone;
+
+                    updateButtonStates(clickedButton);
+                    applyZoneFilter(zone);
+                    announceFilterChange(zone);
+
+                } catch (error) {
+                    console.error('Error al aplicar filtro:', error);
+                }
+            }
+
+            function handleKeydown(event) {
+                const { key } = event;
+
+                if (key === 'Enter' || key === ' ') {
+                    event.preventDefault();
+                    event.target.click();
+                    return;
+                }
+
+                if (key === 'ArrowLeft' || key === 'ArrowRight') {
+                    event.preventDefault();
+                    navigateButtons(event.target, key === 'ArrowRight');
+                }
+            }
+
+            function navigateButtons(currentButton, forward) {
+                const buttonsArray = Array.from(switchButtons);
+                const currentIndex = buttonsArray.indexOf(currentButton);
+                
+                let nextIndex;
+                if (forward) {
+                    nextIndex = currentIndex + 1 >= buttonsArray.length ? 0 : currentIndex + 1;
+                } else {
+                    nextIndex = currentIndex - 1 < 0 ? buttonsArray.length - 1 : currentIndex - 1;
+                }
+
+                buttonsArray[nextIndex].focus();
+            }
+
+            function handleFocus(event) {
+                event.target.setAttribute('tabindex', '0');
+            }
+
+            function handleBlur(event) {
+                if (!event.target.classList.contains('active')) {
+                    event.target.setAttribute('tabindex', '-1');
+                }
+            }
+
+            function updateButtonStates(activeButton) {
+                switchButtons.forEach(button => {
+                    const isActive = button === activeButton;
+                    
+                    button.classList.toggle('active', isActive);
+                    button.setAttribute('aria-selected', isActive.toString());
+                    button.setAttribute('tabindex', isActive ? '0' : '-1');
+                });
+            }
+
+            function applyZoneFilter(zone) {
+                let visibleCount = 0;
+
+                tiles.forEach((tile, index) => {
+                    const tileZone = tile.getAttribute('data-zone');
+                    const shouldShow = zone === 'all' || tileZone === zone;
+
+                    if (shouldShow) {
+                        showTile(tile);
+                        visibleCount++;
+                    } else {
+                        hideTile(tile);
+                    }
+                });
+
+                console.log(`Filtro: ${zone}, visible: ${visibleCount}`);
+            }
+
+            function showTile(tile) {
+                tile.classList.remove('hidden');
+                tile.style.opacity = '0';
+                tile.style.transform = 'translateY(10px)';
+                
+                requestAnimationFrame(() => {
+                    tile.style.transition = `opacity ${CONFIG.ANIMATION_DURATION}ms ease, transform ${CONFIG.ANIMATION_DURATION}ms ease`;
+                    tile.style.opacity = '1';
+                    tile.style.transform = 'translateY(0)';
+                });
+
+                setTimeout(() => {
+                    tile.style.opacity = '';
+                    tile.style.transform = '';
+                    tile.style.transition = '';
+                }, CONFIG.ANIMATION_DURATION);
+            }
+
+            function hideTile(tile) {
+                tile.style.transition = `opacity ${CONFIG.ANIMATION_DURATION}ms ease`;
+                tile.style.opacity = '0';
+                
+                setTimeout(() => {
+                    tile.classList.add('hidden');
+                    tile.style.opacity = '';
+                    tile.style.transition = '';
+                }, CONFIG.ANIMATION_DURATION);
+            }
+
+            function announceFilterChange(zone) {
+                const announcements = {
+                    'all': 'Mostrando todos los productos',
+                    'zona-norte': 'Mostrando productos de Zona Norte GBA',
+                    'neuquen': 'Mostrando productos de Neuquén'
+                };
+
+                const message = announcements[zone] || `Mostrando productos de ${zone}`;
+                
+                const announcement = document.createElement('div');
+                announcement.setAttribute('aria-live', 'assertive');
+                announcement.setAttribute('aria-atomic', 'true');
+                announcement.className = 'visually-hidden';
+                announcement.textContent = message;
+                
+                document.body.appendChild(announcement);
+                
+                setTimeout(() => {
+                    document.body.removeChild(announcement);
+                }, 1000);
+            }
+
+            function handleResize() {
+                console.log('Ventana redimensionada');
+            }
+
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func.apply(this, args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initializeApp);
+            } else {
+                initializeApp();
+            }
+
+        })();
+    </script>
+</body>
+</html>
